@@ -1,14 +1,14 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Sensive Blog - Home</title>
-  {% load static %}
+  <title>Sensive Blog - Home</title>  
   <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
-
   <link rel="stylesheet" href="{% static 'styles.min.css' %}">
+  <link rel="stylesheet" href="{% static 'custom.css' %}">
 </head>
 <body>
   <!--================Header Menu Area =================-->
@@ -69,7 +69,7 @@
                     src="{% if post.image_url %}{{ post.image_url }}{% else %}{% static 'img/banner/blog.png' %}{% endif %}" alt="">
                 </div>  
                 <div class="blog__slide__content">
-                  <h3><a href="#">{{post.title}}</a></h3>
+                  <h3><a href="{% url 'post_detail' post.slug %}">{{post.title}}</a></h3>
                   <p>{{post.published_at}}</p>
                 </div>
               </div>
@@ -97,8 +97,8 @@
                 </div>
                 <div class="details mt-20">
                   <h3>{{ post.title }}</h3>
-                  <p>{{ post.text }}</p>
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                  <p>{{ post.text|truncatechars:200 }}</p>
+                  <a class="button" href="{% url 'post_detail' post.slug %}">Read More <i class="ti-arrow-right"></i></a>
                 </div>
               </div>
             {% endfor %}
