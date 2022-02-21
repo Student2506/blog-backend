@@ -2,6 +2,18 @@
 
 {% block title %}{{ post.title }} - Blog Details{% endblock %}
 {% load static %}
+{% block hero_banner %}
+  <section class="mb-30px">
+    <div class="container">
+      <div class="hero-banner">
+        <div class="hero-banner__content">
+          <h1>Blog details</h1>
+          <h4><a href="{% url 'index' %}">Home</a>-Blog Details</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
 {% block content %}
   {% block blog_post_area %}
     <section class="blog-post-area section-margin">

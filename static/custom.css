@@ -5,3 +5,7 @@
 .ti-heart {
     color: red !important;
 }
+
+.hero-banner__content a {
+    color: #fff;
+}
